@@ -1,0 +1,19 @@
+<div ng-app="app">
+  <div ng-controller="peopleCtrl">
+     <h2>People:</h2>
+      <div ng-repeat="people in peoples track by $index">
+        <p ng-click="toggleBio(people)">{{ people.name }}
+        <!--         <div ng-if="people.bioVisible">Bio: {{people.bio}} </div> -->
+        <div ng-class="{strike: people.bioVisible}">Bio: {{people.bio}} </div>
+        <button ng-click="deletePeople($index)">Delete this person</button>
+        </p>
+        <input ng-model="people.name">
+      </div>
+      <p>Counter: {{peoples.length}}</p>
+      <h3>Enter a new person here: </h3>
+      <input ng-model="newPeople">
+      <input ng-model="newBio">
+      <button ng-click="addPeople(newPeople, newBio)">Add new person!</button>
+    </div>
+  </div>
+</div>
